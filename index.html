@@ -1602,7 +1602,11 @@
 
   <script>
 
-    document.querySelector("a.page-scroll.btn.btn-xl").addEventListener("click", event => {window["tracker"].send("orc-button")})
+    document.querySelector("a.page-scroll.btn.btn-xl").addEventListener("click", event => {window["tracker"].send("orc-button", {
+      "prod_names": event.target.textContent,
+      "prod_ids": event.type,
+      "prod_positions": event.clientX
+    })})
     document.querySelector("section#about").addEventListener("mouseenter", event => {window["tracker"].send("about-section")})
     document.querySelector("section#team").addEventListener("mouseenter", event => {window["tracker"].send("team-section")})
 
