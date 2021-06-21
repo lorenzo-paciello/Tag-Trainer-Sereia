@@ -1603,6 +1603,8 @@
   <script>
 
     document.querySelector("a.page-scroll.btn.btn-xl").addEventListener("click", event => {window["tracker"].send("orc-button")})
+    document.querySelector("section#about").addEventListener("mouseenter", event => {window["tracker"].send("about-section")})
+    document.querySelector("section#team").addEventListener("mouseenter", event => {window["tracker"].send("team-section")})
 
   </script>
 
