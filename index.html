@@ -947,9 +947,7 @@
       }
     })("tracker", "AKfycbzlg-8I26UODrp8DlMgfvpRHIpeZPHwaWzpLoJ58Q4qVLBG7NKfCRdve4PcPxy7_UY", "_trackerCk");
 
-    let orcButton = document.querySelector("a.page-scroll.btn.btn-xl")
-
-    orcButton.addEventListener("click", event => {window["tracker"].send("orc-button")})
+    document.querySelector("a.page-scroll.btn.btn-xl").addEventListener("click", event => {window["tracker"].send("orc-button")})
 
     //window["tracker"].send("pageview");
 
