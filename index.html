@@ -15,10 +15,12 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
   <!-- Theme CSS -->
@@ -916,9 +918,43 @@
     <![endif]-->
 
   <script>
-    (function(i, s, o, g, r, a, m) {
+    
+    //Snippet:
+    //tn: tracker name
+    //tc: tracher code
+    //cn: cookie name
+    (function(tn, tc, cn) {
+    window[tn] = window[tn] || {
+      status: "loading_code",
+      code: tc,
+     cookieName: cn,
+      queue: [],
+      send: function(a, d){
+        d = d || {};
+        window[tn].queue.push({
+          a: a,
+          d: Object.assign(d, {timestamp: Date.now()})
+        });
+      }
+    };
+
+    if(window[tn].status == "loading_code") {
+      window[tn].status = "waiting_script";
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://script.google.com/macros/s/" + tc + "/dev/library?tn=" + tn;
+      document.head.appendChild(s);
+      }
+    })("tracker", "AKfycbzlg-8I26UODrp8DlMgfvpRHIpeZPHwaWzpLoJ58Q4qVLBG7NKfCRdve4PcPxy7_UY", "_trackerCk");
+
+    window["tracker"].send("pageview");
+
+  </script>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function() {
+      i[r] = i[r] || function () {
         (i[r].q = i[r].q || []).push(arguments)
       }, i[r].l = 1 * new Date();
       a = s.createElement(o),
@@ -935,22 +971,25 @@
     ga('send', 'pageview');
   </script>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TWPM36V');</script>
-<!-- End Google Tag Manager -->
-  
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TWPM36V');</script>
+  <!-- End Google Tag Manager -->
+
 </head>
 
 <body id="page-top" class="index">
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPM36V"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPM36V" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <img src="https://tag-trainer.raccoon.ag/static/shared/balloon.svg" id="call-me-baby" />
   <!-- Navigation -->
   <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -1019,7 +1058,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </span>
           <h4 class="service-heading">E-Commerce</h4>
           <p class="text-muted">Anos de experiência na criação de plataformas de ECommerce robustas.
-            Controle completo do inventário de produtos, integração automática com Google Analytcs e adserver incluso. </p>
+            Controle completo do inventário de produtos, integração automática com Google Analytcs e adserver incluso.
+          </p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
@@ -1036,7 +1076,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Segurança</h4>
-          <p class="text-muted">Tecnologia de ponta e um kernel caótico e mal mantido garantem sua segurança em nossos Windows Servers
+          <p class="text-muted">Tecnologia de ponta e um kernel caótico e mal mantido garantem sua segurança em nossos
+            Windows Servers
             de última geração!</p>
         </div>
       </div>
@@ -1122,15 +1163,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="timeline-body">
                   <p class="text-muted">
-                    A idéia para o negócio foi cencebida no banheiro de Ariel, que inclusive foi o primeiro escritório da empresa
+                    A idéia para o negócio foi cencebida no banheiro de Ariel, que inclusive foi o primeiro escritório
+                    da empresa
                     pelos primeiros dois meses de existência.
-                    <p>
+                  <p>
                 </div>
               </div>
             </li>
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <img class="img-circle img-responsive" src="https://blackrockdigital.github.io/startbootstrap-agency//img/about/2.jpg" alt="">
+                <img class="img-circle img-responsive"
+                  src="https://blackrockdigital.github.io/startbootstrap-agency//img/about/2.jpg" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -1139,14 +1182,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="timeline-body">
                   <p class="text-muted">
-                    Com a primeira rodada de investimentos ainda em 2009, a Rover investimentos solidifica a presença da Sereia
+                    Com a primeira rodada de investimentos ainda em 2009, a Rover investimentos solidifica a presença da
+                    Sereia
                     Software no mercado</p>
                 </div>
               </div>
             </li>
             <li>
               <div class="timeline-image">
-                <img class="img-circle img-responsive" src="https://blackrockdigital.github.io/startbootstrap-agency//img/about/3.jpg" alt="">
+                <img class="img-circle img-responsive"
+                  src="https://blackrockdigital.github.io/startbootstrap-agency//img/about/3.jpg" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -1164,7 +1209,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="timeline-image">
                 <h4>Faça parte
                   <br>da nossa
-                  <br>história!</h4>
+                  <br>história!
+                </h4>
               </div>
             </li>
           </ul>
@@ -1258,21 +1304,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome *" id="name" required data-validation-required-message="Entre com o seu nome.">
+                  <input type="text" class="form-control" placeholder="Nome *" id="name" required
+                    data-validation-required-message="Entre com o seu nome.">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Seu email *" id="email" required data-validation-required-message="Entre com seu endereço de email">
+                  <input type="email" class="form-control" placeholder="Seu email *" id="email" required
+                    data-validation-required-message="Entre com seu endereço de email">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input type="tel" class="form-control" placeholder="Telefone *" id="phone" required data-validation-required-message="Seu número de telefone.">
+                  <input type="tel" class="form-control" placeholder="Telefone *" id="phone" required
+                    data-validation-required-message="Seu número de telefone.">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <textarea class="form-control" placeholder="Mensagem *" id="message" required data-validation-required-message="Por favor entre uma mensagem."></textarea>
+                  <textarea class="form-control" placeholder="Mensagem *" id="message" required
+                    data-validation-required-message="Por favor entre uma mensagem."></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -1336,18 +1386,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- Project Details Go Here -->
                 <h2>Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-responsive img-centered" src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/roundicons-free.png" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
+                <img class="img-responsive img-centered"
+                  src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/roundicons-free.png"
+                  alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                  blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia
+                  expedita beatae cupiditate,
                   maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                 <p>
-                  <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the
-                  1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
+                  <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free,
+                  courtesy of <a
+                    href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can
+                  purchase the
+                  1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+                </p>
                 <ul class="list-inline">
                   <li>Date: July 2014</li>
                   <li>Client: Round Icons</li>
                   <li>Category: Graphic Design</li>
                 </ul>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close
+                  Project</button>
               </div>
             </div>
           </div>
@@ -1372,11 +1431,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="modal-body">
                 <h2>Project Heading</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-responsive img-centered" src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/startup-framework-preview.png" alt="">
-                <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be
-                  integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
+                <img class="img-responsive img-centered"
+                  src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/startup-framework-preview.png"
+                  alt="">
+                <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for
+                  professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and
+                  templates) which can easily be
+                  integrated into almost any design. All of these components are made in the same style, and can easily
+                  be integrated into projects, allowing you to create hundreds of solutions for your future projects.
+                </p>
                 <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close
+                  Project</button>
               </div>
             </div>
           </div>
@@ -1402,11 +1468,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- Project Details Go Here -->
                 <h2>Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-responsive img-centered" src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/treehouse-preview.png" alt="">
-                <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other
+                <img class="img-responsive img-centered"
+                  src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/treehouse-preview.png"
+                  alt="">
+                <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan
+                    Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to
+                  showcase their apps or other
                   projects.</p>
-                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                <p>You can download the PSD template in this portfolio sample item at <a
+                    href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.
+                </p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close
+                  Project</button>
               </div>
             </div>
           </div>
@@ -1432,11 +1505,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- Project Details Go Here -->
                 <h2>Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-responsive img-centered" src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/golden-preview.png" alt="">
-                <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively
-                  for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
-                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                <img class="img-responsive img-centered"
+                  src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/golden-preview.png"
+                  alt="">
+                <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a
+                    href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page
+                  web template that was made exclusively
+                  for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that
+                  can be easily modified to fit your needs.</p>
+                <p>You can download the PSD template in this portfolio sample item at <a
+                    href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.
+                </p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close
+                  Project</button>
               </div>
             </div>
           </div>
@@ -1462,11 +1543,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- Project Details Go Here -->
                 <h2>Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-responsive img-centered" src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/escape-preview.png" alt="">
-                <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a
+                <img class="img-responsive img-centered"
+                  src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/escape-preview.png"
+                  alt="">
+                <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan
+                    Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template
+                  is ideal for those looking for a
                   simple one page solution to describe your business and offer your services.</p>
-                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                <p>You can download the PSD template in this portfolio sample item at <a
+                    href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.
+                </p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close
+                  Project</button>
               </div>
             </div>
           </div>
@@ -1492,11 +1580,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- Project Details Go Here -->
                 <h2>Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-responsive img-centered" src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/dreams-preview.png" alt="">
-                <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with
+                <img class="img-responsive img-centered"
+                  src="https://blackrockdigital.github.io/startbootstrap-agency//img/portfolio/dreams-preview.png"
+                  alt="">
+                <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan
+                    Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful
+                  template that’s designed with
                   the Bootstrap framework in mind.</p>
-                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                <p>You can download the PSD template in this portfolio sample item at <a
+                    href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.
+                </p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close
+                  Project</button>
               </div>
             </div>
           </div>
@@ -1512,7 +1607,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"
+    integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb"
+    crossorigin="anonymous"></script>
 
   <script>
     /* jqBootstrapValidation
@@ -1525,7 +1622,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      * http://ReactiveRaven.github.com/jqBootstrapValidation/
      */
 
-    (function($) {
+    (function ($) {
 
       var createdElements = [];
 
@@ -1540,13 +1637,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           autoAdd: {
             helpBlocks: true
           },
-          filter: function() {
+          filter: function () {
             // return $(this).is(":visible"); // only validate elements you can see
             return true; // validate everything
           }
         },
         methods: {
-          init: function(options) {
+          init: function (options) {
 
             var settings = $.extend(true, {}, defaults);
 
@@ -1555,18 +1652,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             var $siblingElements = this;
 
             var uniqueForms = $.unique(
-              $siblingElements.map(function() {
+              $siblingElements.map(function () {
                 return $(this).parents("form")[0];
               }).toArray()
             );
 
-            $(uniqueForms).bind("submit", function(e) {
+            $(uniqueForms).bind("submit", function (e) {
               var $form = $(this);
               var warningsFound = 0;
               var $inputs = $form.find("input,textarea,select").not("[type=submit],[type=image]").filter(settings.options.filter);
               $inputs.trigger("submit.validation").trigger("validationLostFocus.validation");
 
-              $inputs.each(function(i, el) {
+              $inputs.each(function (i, el) {
                 var $this = $(el),
                   $controlGroup = $this.parents(".form-group").first();
                 if (
@@ -1595,7 +1692,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               }
             });
 
-            return this.each(function() {
+            return this.each(function () {
 
               // Get references to everything we're interested in
               var $this = $(this),
@@ -1742,7 +1839,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               }
 
               // Get extra ones defined on the element's data attributes
-              $.each($this.data(), function(i, el) {
+              $.each($this.data(), function (i, el) {
                 var parts = i.replace(/([A-Z])/g, ",$1").split(",");
                 if (parts[0] === "validation" && parts[1]) {
                   validatorNames.push(parts[1]);
@@ -1759,7 +1856,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               do // repeatedly expand 'shortcut' validators into their real validators
               {
                 // Uppercase only the first letter of each name
-                $.each(validatorNames, function(i, el) {
+                $.each(validatorNames, function (i, el) {
                   validatorNames[i] = formatValidatorName(el);
                 });
 
@@ -1768,11 +1865,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 // Pull out the new validator names from each shortcut
                 newValidatorNamesToInspect = [];
-                $.each(validatorNamesToInspect, function(i, el) {
+                $.each(validatorNamesToInspect, function (i, el) {
                   if ($this.data("validation" + el + "Shortcut") !== undefined) {
                     // Are these custom validators?
                     // Pull them out!
-                    $.each($this.data("validation" + el + "Shortcut").split(","), function(i2, el2) {
+                    $.each($this.data("validation" + el + "Shortcut").split(","), function (i2, el2) {
                       newValidatorNamesToInspect.push(el2);
                     });
                   } else if (settings.builtInValidators[el.toLowerCase()]) {
@@ -1780,7 +1877,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     // Pull it out!
                     var validator = settings.builtInValidators[el.toLowerCase()];
                     if (validator.type.toLowerCase() === "shortcut") {
-                      $.each(validator.shortcut.split(","), function(i, el) {
+                      $.each(validator.shortcut.split(","), function (i, el) {
                         el = formatValidatorName(el);
                         newValidatorNamesToInspect.push(el);
                         validatorNames.push(el);
@@ -1799,7 +1896,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
               var validators = {};
 
-              $.each(validatorNames, function(i, el) {
+              $.each(validatorNames, function (i, el) {
                 // Set up the 'override' message
                 var message = $this.data("validation" + el + "Message");
                 var hasOverrideMessage = (message !== undefined);
@@ -1807,13 +1904,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 message =
                   (
                     message ?
-                    message :
-                    "'" + el + "' validation failed <!-- Add attribute 'data-validation-" + el.toLowerCase() + "-message' to input to change this message -->"
+                      message :
+                      "'" + el + "' validation failed <!-- Add attribute 'data-validation-" + el.toLowerCase() + "-message' to input to change this message -->"
                   );
 
                 $.each(
                   settings.validatorTypes,
-                  function(validatorType, validatorTemplate) {
+                  function (validatorType, validatorTemplate) {
                     if (validators[validatorType] === undefined) {
                       validators[validatorType] = [];
                     }
@@ -1821,9 +1918,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       validators[validatorType].push(
                         $.extend(
                           true, {
-                            name: formatValidatorName(validatorTemplate.name),
-                            message: message
-                          },
+                          name: formatValidatorName(validatorTemplate.name),
+                          message: message
+                        },
                           validatorTemplate.init($this, el)
                         )
                       );
@@ -1845,7 +1942,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   } else {
                     $.each(
                       settings.validatorTypes,
-                      function(validatorTemplateType, validatorTemplate) {
+                      function (validatorTemplateType, validatorTemplate) {
                         if (validators[validatorTemplateType] === undefined) {
                           validators[validatorTemplateType] = [];
                         }
@@ -1877,8 +1974,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 "original-contents",
                 (
                   $helpBlock.data("original-contents") ?
-                  $helpBlock.data("original-contents") :
-                  $helpBlock.html()
+                    $helpBlock.data("original-contents") :
+                    $helpBlock.html()
                 )
               );
 
@@ -1886,8 +1983,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 "original-role",
                 (
                   $helpBlock.data("original-role") ?
-                  $helpBlock.data("original-role") :
-                  $helpBlock.attr("role")
+                    $helpBlock.data("original-role") :
+                    $helpBlock.attr("role")
                 )
               );
 
@@ -1895,8 +1992,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 "original-classes",
                 (
                   $controlGroup.data("original-clases") ?
-                  $controlGroup.data("original-classes") :
-                  $controlGroup.attr("class")
+                    $controlGroup.data("original-classes") :
+                    $controlGroup.attr("class")
                 )
               );
 
@@ -1904,8 +2001,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 "original-aria-invalid",
                 (
                   $this.data("original-aria-invalid") ?
-                  $this.data("original-aria-invalid") :
-                  $this.attr("aria-invalid")
+                    $this.data("original-aria-invalid") :
+                    $this.attr("aria-invalid")
                 )
               );
 
@@ -1915,16 +2012,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
               $this.bind(
                 "validation.validation",
-                function(event, params) {
+                function (event, params) {
 
                   var value = getValue($this);
 
                   // Get a list of the errors to apply
                   var errorsFound = [];
 
-                  $.each(validators, function(validatorType, validatorTypeArray) {
+                  $.each(validators, function (validatorType, validatorTypeArray) {
                     if (value || value.length || (params && params.includeEmpty) || (!!settings.validatorTypes[validatorType].blockSubmit && params && !!params.submitting)) {
-                      $.each(validatorTypeArray, function(i, validator) {
+                      $.each(validatorTypeArray, function (i, validator) {
                         if (settings.validatorTypes[validatorType].validate($this, value, validator)) {
                           errorsFound.push(validator.message);
                         }
@@ -1938,7 +2035,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
               $this.bind(
                 "getValidators.validation",
-                function() {
+                function () {
                   return validators;
                 }
               );
@@ -1948,7 +2045,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               // =============================================================
               $this.bind(
                 "submit.validation",
-                function() {
+                function () {
                   return $this.triggerHandler("change.validation", {
                     submitting: true
                   });
@@ -1964,15 +2061,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   "keypress",
                   "change"
                 ].join(".validation ") + ".validation",
-                function(e, params) {
+                function (e, params) {
 
                   var value = getValue($this);
 
                   var errorsFound = [];
 
-                  $controlGroup.find("input,textarea,select").each(function(i, el) {
+                  $controlGroup.find("input,textarea,select").each(function (i, el) {
                     var oldCount = errorsFound.length;
-                    $.each($(el).triggerHandler("validation.validation", params), function(j, message) {
+                    $.each($(el).triggerHandler("validation.validation", params), function (j, message) {
                       errorsFound.push(message);
                     });
                     if (errorsFound.length > oldCount) {
@@ -2015,15 +2112,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   }
                 }
               );
-              $this.bind("validationLostFocus.validation", function() {
+              $this.bind("validationLostFocus.validation", function () {
                 $controlGroup.removeClass("success");
               });
             });
           },
-          destroy: function() {
+          destroy: function () {
 
             return this.each(
-              function() {
+              function () {
 
                 var
                   $this = $(this),
@@ -2049,10 +2146,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             );
 
           },
-          collectErrors: function(includeEmpty) {
+          collectErrors: function (includeEmpty) {
 
             var errorMessages = {};
-            this.each(function(i, el) {
+            this.each(function (i, el) {
               var $el = $(el);
               var name = $el.attr("name");
               var errors = $el.triggerHandler("validation.validation", {
@@ -2061,7 +2158,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               errorMessages[name] = $.extend(true, errors, errorMessages[name]);
             });
 
-            $.each(errorMessages, function(i, el) {
+            $.each(errorMessages, function (i, el) {
               if (el.length === 0) {
                 delete errorMessages[i];
               }
@@ -2070,11 +2167,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             return errorMessages;
 
           },
-          hasErrors: function() {
+          hasErrors: function () {
 
             var errorMessages = [];
 
-            this.each(function(i, el) {
+            this.each(function (i, el) {
               errorMessages = errorMessages.concat(
                 $(el).triggerHandler("getValidators.validation") ? $(el).triggerHandler("validation.validation", {
                   submitting: true
@@ -2084,14 +2181,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             return (errorMessages.length > 0);
           },
-          override: function(newDefaults) {
+          override: function (newDefaults) {
             defaults = $.extend(true, defaults, newDefaults);
           }
         },
         validatorTypes: {
           callback: {
             name: "callback",
-            init: function($this, name) {
+            init: function ($this, name) {
               return {
                 validatorName: name,
                 callback: $this.data("validation" + name + "Callback"),
@@ -2100,7 +2197,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 lastFinished: true
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               if (validator.lastValue === value && validator.lastFinished) {
                 return !validator.lastValid;
               }
@@ -2117,7 +2214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   window,
                   $this,
                   value,
-                  function(data) {
+                  function (data) {
                     if (rrjqbvValidator.lastValue === data.value) {
                       rrjqbvValidator.lastValid = data.valid;
                       if (data.message) {
@@ -2126,7 +2223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       rrjqbvValidator.lastFinished = true;
                       rrjqbvThis.data("validation" + rrjqbvValidator.validatorName + "Message", rrjqbvValidator.message);
                       // Timeout is set to avoid problems with the events being considered 'already fired'
-                      setTimeout(function() {
+                      setTimeout(function () {
                         rrjqbvThis.trigger("change.validation");
                       }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
                     }
@@ -2140,7 +2237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           },
           ajax: {
             name: "ajax",
-            init: function($this, name) {
+            init: function ($this, name) {
               return {
                 validatorName: name,
                 url: $this.data("validation" + name + "Ajax"),
@@ -2149,7 +2246,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 lastFinished: true
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               if ("" + validator.lastValue === "" + value && validator.lastFinished === true) {
                 return validator.lastValid === false;
               }
@@ -2162,7 +2259,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   url: validator.url,
                   data: "value=" + value + "&field=" + $this.attr("name"),
                   dataType: "json",
-                  success: function(data) {
+                  success: function (data) {
                     if ("" + validator.lastValue === "" + data.value) {
                       validator.lastValid = !!(data.valid);
                       if (data.message) {
@@ -2171,18 +2268,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       validator.lastFinished = true;
                       $this.data("validation" + validator.validatorName + "Message", validator.message);
                       // Timeout is set to avoid problems with the events being considered 'already fired'
-                      setTimeout(function() {
+                      setTimeout(function () {
                         $this.trigger("change.validation");
                       }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
                     }
                   },
-                  failure: function() {
+                  failure: function () {
                     validator.lastValid = true;
                     validator.message = "ajax call failed";
                     validator.lastFinished = true;
                     $this.data("validation" + validator.validatorName + "Message", validator.message);
                     // Timeout is set to avoid problems with the events being considered 'already fired'
-                    setTimeout(function() {
+                    setTimeout(function () {
                       $this.trigger("change.validation");
                     }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
                   }
@@ -2195,22 +2292,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           },
           regex: {
             name: "regex",
-            init: function($this, name) {
+            init: function ($this, name) {
               return {
                 regex: regexFromString($this.data("validation" + name + "Regex"))
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return (!validator.regex.test(value) && !validator.negative) ||
                 (validator.regex.test(value) && validator.negative);
             }
           },
           required: {
             name: "required",
-            init: function($this, name) {
+            init: function ($this, name) {
               return {};
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return !!(value.length === 0 && !validator.negative) ||
                 !!(value.length > 0 && validator.negative);
             },
@@ -2218,9 +2315,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           },
           match: {
             name: "match",
-            init: function($this, name) {
+            init: function ($this, name) {
               var element = $this.parents("form").first().find("[name=\"" + $this.data("validation" + name + "Match") + "\"]").first();
-              element.bind("validation.validation", function() {
+              element.bind("validation.validation", function () {
                 $this.trigger("change.validation", {
                   submitting: true
                 });
@@ -2229,7 +2326,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 "element": element
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return (value !== validator.element.val() && !validator.negative) ||
                 (value === validator.element.val() && validator.negative);
             },
@@ -2237,57 +2334,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           },
           max: {
             name: "max",
-            init: function($this, name) {
+            init: function ($this, name) {
               return {
                 max: $this.data("validation" + name + "Max")
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return (parseFloat(value, 10) > parseFloat(validator.max, 10) && !validator.negative) ||
                 (parseFloat(value, 10) <= parseFloat(validator.max, 10) && validator.negative);
             }
           },
           min: {
             name: "min",
-            init: function($this, name) {
+            init: function ($this, name) {
               return {
                 min: $this.data("validation" + name + "Min")
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return (parseFloat(value) < parseFloat(validator.min) && !validator.negative) ||
                 (parseFloat(value) >= parseFloat(validator.min) && validator.negative);
             }
           },
           maxlength: {
             name: "maxlength",
-            init: function($this, name) {
+            init: function ($this, name) {
               return {
                 maxlength: $this.data("validation" + name + "Maxlength")
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return ((value.length > validator.maxlength) && !validator.negative) ||
                 ((value.length <= validator.maxlength) && validator.negative);
             }
           },
           minlength: {
             name: "minlength",
-            init: function($this, name) {
+            init: function ($this, name) {
               return {
                 minlength: $this.data("validation" + name + "Minlength")
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return ((value.length < validator.minlength) && !validator.negative) ||
                 ((value.length >= validator.minlength) && validator.negative);
             }
           },
           maxchecked: {
             name: "maxchecked",
-            init: function($this, name) {
+            init: function ($this, name) {
               var elements = $this.parents("form").first().find("[name=\"" + $this.attr("name") + "\"]");
-              elements.bind("click.validation", function() {
+              elements.bind("click.validation", function () {
                 $this.trigger("change.validation", {
                   includeEmpty: true
                 });
@@ -2297,7 +2394,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 elements: elements
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return (validator.elements.filter(":checked").length > validator.maxchecked && !validator.negative) ||
                 (validator.elements.filter(":checked").length <= validator.maxchecked && validator.negative);
             },
@@ -2305,9 +2402,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           },
           minchecked: {
             name: "minchecked",
-            init: function($this, name) {
+            init: function ($this, name) {
               var elements = $this.parents("form").first().find("[name=\"" + $this.attr("name") + "\"]");
-              elements.bind("click.validation", function() {
+              elements.bind("click.validation", function () {
                 $this.trigger("change.validation", {
                   includeEmpty: true
                 });
@@ -2317,7 +2414,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 elements: elements
               };
             },
-            validate: function($this, value, validator) {
+            validate: function ($this, value, validator) {
               return (validator.elements.filter(":checked").length < validator.minchecked && !validator.negative) ||
                 (validator.elements.filter(":checked").length >= validator.minchecked && validator.negative);
             },
@@ -2390,18 +2487,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       };
 
-      var formatValidatorName = function(name) {
+      var formatValidatorName = function (name) {
         return name
           .toLowerCase()
           .replace(
             /(^|\s)([a-z])/g,
-            function(m, p1, p2) {
+            function (m, p1, p2) {
               return p1 + p2.toUpperCase();
             }
           );
       };
 
-      var getValue = function($this) {
+      var getValue = function ($this) {
         // Extract the value we're talking about
         var value = $this.val();
         var type = $this.attr("type");
@@ -2424,7 +2521,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        * http://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string#answer-359910
        * Short link: http://tinyurl.com/executeFunctionByName
        **/
-      function executeFunctionByName(functionName, context /*, args*/ ) {
+      function executeFunctionByName(functionName, context /*, args*/) {
         var args = Array.prototype.slice.call(arguments).splice(2);
         var namespaces = functionName.split(".");
         var func = namespaces.pop();
@@ -2434,7 +2531,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return context[func].apply(this, args);
       }
 
-      $.fn.jqBootstrapValidation = function(method) {
+      $.fn.jqBootstrapValidation = function (method) {
 
         if (defaults.methods[method]) {
           return defaults.methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
@@ -2447,19 +2544,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       };
 
-      $.jqBootstrapValidation = function(options) {
+      $.jqBootstrapValidation = function (options) {
         $(":input").not("[type=image],[type=submit]").jqBootstrapValidation.apply(this, arguments);
       };
 
     })(jQuery);
-    $(function() {
+    $(function () {
 
       $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
         preventSubmit: true,
-        submitError: function($form, event, errors) {
+        submitError: function ($form, event, errors) {
           // additional error messages or events
         },
-        submitSuccess: function($form, event) {
+        submitSuccess: function ($form, event) {
           event.preventDefault(); // prevent default submit behaviour
           // get values from FORM
           var name = $("input#name").val();
@@ -2481,7 +2578,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               message: message
             },
             cache: false,
-            success: function() {
+            success: function () {
               // Success message
               $('#success').html("<div class='alert alert-success'>");
               $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -2494,7 +2591,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               //clear all fields
               $('#contactForm').trigger("reset");
             },
-            error: function() {
+            error: function () {
               // Fail message
               $('#success').html("<div class='alert alert-danger'>");
               $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -2506,12 +2603,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             },
           });
         },
-        filter: function() {
+        filter: function () {
           return $(this).is(":visible");
         },
       });
 
-      $("a[data-toggle=\"tab\"]").click(function(e) {
+      $("a[data-toggle=\"tab\"]").click(function (e) {
         e.preventDefault();
         $(this).tab("show");
       });
@@ -2519,15 +2616,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     /*When clicking on Full hide fail/success boxes */
-    $('#name').focus(function() {
+    $('#name').focus(function () {
       $('#success').html('');
     });
 
-    (function($) {
+    (function ($) {
       "use strict"; // Start of use strict
 
       // jQuery for page scrolling feature - requires jQuery Easing plugin
-      $('a.page-scroll').bind('click', function(event) {
+      $('a.page-scroll').bind('click', function (event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
           scrollTop: ($($anchor.attr('href')).offset().top - 50)
@@ -2542,7 +2639,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
 
       // Closes the Responsive Menu on Menu Item Click
-      $('.navbar-collapse ul li a').click(function() {
+      $('.navbar-collapse ul li a').click(function () {
         $('.navbar-toggle:visible').click();
       });
 
@@ -2555,7 +2652,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     })(jQuery); // End of use strict
 
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       var element = document.getElementById('call-me-baby');
       element.style.right = '20px';
     }, Math.random() * 12000 + 5000);
