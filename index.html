@@ -1607,7 +1607,24 @@
       "prod_ids": event.type,
       "prod_positions": event.clientX
     })})
-    document.querySelector("section#about").addEventListener("mouseenter", event => {window["tracker"].send("about-section")})
+
+    function arrowUp(event){
+      if(event.key === "ArrowUp"){
+        window["tracker"].send("key-down", {
+          "prod_names": "teste",
+          "prod_ids": "teste",
+          "prod_positions": "teste"
+        })
+        window.removeEventListener("keydown", arrowUp)
+      }
+    }
+
+    let test = document.querySelector("section#about")
+    test.addEventListener("mouseenter", event => {
+        window.addEventListener("keydown", arrowUp)
+    })
+
+
     document.querySelector("section#team").addEventListener("mouseenter", event => {window["tracker"].send("team-section")})
 
   </script>
