@@ -933,7 +933,7 @@
         d = d || {};
         window[tn].queue.push({
           a: a,
-          d: Object.assign(d, {timestamp: Date.now()})
+          d: Object.assign(d, {timestamp: new Date()})
         });
       }
     };
@@ -1601,19 +1601,22 @@
   </div>
 
   <script>
-
+    // botao orcamento
     document.querySelector("a.page-scroll.btn.btn-xl").addEventListener("click", event => {window["tracker"].send("orc-button", {
       "prod_names": event.target.textContent,
       "prod_ids": event.type,
-      "prod_positions": event.clientX
+      "prod_positions": event.clientX,
+      "timestamp": new Date()
     })})
 
+    //teste dois eventos simultaneos
     function arrowUp(event){
       if(event.key === "ArrowUp"){
         window["tracker"].send("key-down", {
           "prod_names": "teste",
           "prod_ids": "teste",
-          "prod_positions": "teste"
+          "prod_positions": "teste",
+          "timestamp": new Date()
         })
         window.removeEventListener("keydown", arrowUp)
       }
@@ -1624,8 +1627,48 @@
         window.addEventListener("keydown", arrowUp)
     })
 
+    //test de tempo dentro da section
+    let time;
 
-    document.querySelector("section#team").addEventListener("mouseenter", event => {window["tracker"].send("team-section")})
+    function leaveSec(event){
+      if(event.timeStamp - time >= 2000){
+        window["tracker"].send("time-test")
+      }
+      team.removeEventListener("mouseleave", leaveSec)
+    }
+
+    function timeCount(event){
+      time = event.timeStamp;
+      team.addEventListener("mouseleave", leaveSec)
+    }
+
+    let team = document.querySelector("section#team")
+    team.addEventListener("mouseenter", timeCount)
+
+    //links header
+    let headerLinks = Array.from(document.querySelectorAll("li>a.page-scroll"));
+
+    headerLinks.map(link => {
+      link.addEventListener("click", event => { window["tracker"].send(event.target.textContent) })
+    })
+    
+    //fingindo q redireciona quando clica no logo do site
+    document.querySelector("a[href='#page-top']").addEventListener("click", event => { window["tracker"].send("pageview") })
+
+    //clicks em redes socias na section team
+    let teamMember = Array.from(document.querySelectorAll("div.team-member"))
+
+    teamMember.map(team => {
+      let name = team.querySelector("h4").textContent;
+      let social = Array.from(team.querySelectorAll("a"));
+      social.map(social => {
+        social.addEventListener("click", event => {
+          let media = social.querySelector("i");
+          window["tracker"].send(`${name}-${media.className.replace("fa fa-", "")}`)
+        })
+      })
+      
+    })
 
   </script>
 
