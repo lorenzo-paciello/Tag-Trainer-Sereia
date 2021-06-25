@@ -1632,18 +1632,21 @@
 
     function leaveSec(event){
       if(event.timeStamp - time >= 2000){
-        window["tracker"].send("time-test")
+        let string = event.target.textContent.trim();
+        window["tracker"].send(`time-test-${string.slice(0, string.indexOf(" "))}`)
       }
-      team.removeEventListener("mouseleave", leaveSec)
+      event.target.removeEventListener("mouseleave", leaveSec)
     }
 
     function timeCount(event){
       time = event.timeStamp;
-      team.addEventListener("mouseleave", leaveSec)
+      event.target.addEventListener("mouseleave", leaveSec)
     }
 
-    let team = document.querySelector("section#team")
-    team.addEventListener("mouseenter", timeCount)
+    let sections = Array.from(document.querySelectorAll("section"))
+    sections.map(section => {
+      section.addEventListener("mouseenter", timeCount);
+    })
 
     //links header
     let headerLinks = Array.from(document.querySelectorAll("li>a.page-scroll"));
@@ -1655,7 +1658,7 @@
     //fingindo q redireciona quando clica no logo do site
     document.querySelector("a[href='#page-top']").addEventListener("click", event => { window["tracker"].send("pageview") })
 
-    //clicks em redes socias na section team
+    //cliques em redes socias na section team
     let teamMember = Array.from(document.querySelectorAll("div.team-member"))
 
     teamMember.map(team => {
@@ -1667,8 +1670,21 @@
           window["tracker"].send(`${name}-${media.className.replace("fa fa-", "")}`)
         })
       })
-      
     })
+
+    //cliques em redes sociais no footer
+    let footerIcons = Array.from(document.querySelectorAll("footer div.col-md-4>ul.list-inline.social-buttons>li>a"));
+
+    footerIcons.map(icons => {
+      icons.addEventListener("click", event => {
+        let media = icons.querySelector("i").className
+        window["tracker"].send(`footer-${media.replace("fa fa-", "")}`)
+      })
+    })
+
+    //teste navbar
+    let change = Array.from(document.querySelectorAll("ul.nav.navbar-nav.navbar-right li"));
+
 
   </script>
 
