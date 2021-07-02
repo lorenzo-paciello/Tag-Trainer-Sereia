@@ -1717,6 +1717,24 @@
         window["tracker"].send(`click-${name.textContent}`)
       }, true)
     })
+
+    //teste forms
+    let formButton = document.querySelector("[type=submit]");
+    
+    formButton.addEventListener("click", event => {  
+      let sucessButton = document.querySelector("#success");
+
+      setTimeout(function(){
+        if(sucessButton.hasChildNodes()){
+          window["tracker"].send("form-sent");
+        }
+        else{
+          window["tracker"].send("form-failed");
+        }
+      }, 3000)
+      
+      })
+    
     
 
 
